@@ -47,7 +47,6 @@ public class HttpRequset {
             String l = null;
             int len = 0;
             while ((l = buffer.readLine()) != null) {
-                System.out.println(l);
                 if ("".equals(l)) {
                     break;
                 }
