@@ -1,0 +1,15 @@
+
+h1{
+	color: red;
+	transition:background 0.5s;
+}
+h1:hover {
+	background:red;
+}
+h2 {
+	cursor: pointer;
+	transition: font-size 1s;
+}
+h2:hover {
+	font-size: 35px;
+}

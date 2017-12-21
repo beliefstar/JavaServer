@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<service>
+		<connector port="8080" protocol="HTTP/1.1" max-thread="100"/>
+		<webroot>webapps</webroot>
+		<not-found-page>404.html</not-found-page>
+	</service>
+	<type-mappings>
+		<type-mapping ext="html" type="text/html;charset=UTF-8"/>
+		<type-mapping ext="css" type="text/css;charset=UTF-8"/>
+		<type-mapping ext="js" type="application/javascript;charset=UTF-8"/>
+		<type-mapping ext="json" type="application/json;charset=UTF-8"/>
+		
+		<type-mapping ext="jpg" type="image/jpeg"/>
+		<type-mapping ext="png" type="image/png"/>
+		<type-mapping ext="gif" type="image/gif"/>
+	</type-mappings>
+</server>
