@@ -1,1 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<listenes>
+	<listen>
+		<action method="post">/login</action>
+		<target>com.zhenxin.user.Login</target>
+	</listen>
+	<listen>
+		<action method="post">/register</action>
+		<target>com.zhenxin.user.Login</target>
+	</listen>
+</listenes>

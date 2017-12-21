@@ -59,7 +59,7 @@ public class HttpRequset {
                     len = Integer.parseInt(l.substring(l.indexOf(":") + 1).trim());
                 }
             }
-            if (method.toUpperCase().equals("POST")) {
+            if (method != null && method.toUpperCase().equals("POST")) {
                 char[] bys = new char[len];
                 buffer.read(bys);
                 String paraStr = new String(bys);
@@ -80,7 +80,6 @@ public class HttpRequset {
             }
             this.Parameter.put(temp[0], temp[1]);
         }
-        System.out.println(arr.length);
     }
     
     public String getUri() {

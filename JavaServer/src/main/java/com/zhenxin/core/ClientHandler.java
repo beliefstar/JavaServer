@@ -3,10 +3,12 @@ package com.zhenxin.core;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import com.zhenxin.common.ActionListen;
 import com.zhenxin.common.ServerContext;
 import com.zhenxin.http.HttpRequset;
 import com.zhenxin.http.HttpResponse;
@@ -25,8 +27,14 @@ public class ClientHandler implements Runnable {
             HttpRequset req = new HttpRequset(in);
             
             if (req.getUri() != null) {
+            	boolean isPost = "POST".equals(req.getMethod());
+            	HttpResponse res = new HttpResponse(out);
+            	if (ActionListen.isAction(req.getUri(), isPost)) {
+            		ActionListen.doAction(req, res, req.getUri(), isPost);
+            		return;
+				}
                 String type = req.getUri().substring(req.getUri().lastIndexOf(".") + 1);
-                HttpResponse res = new HttpResponse(out);
+                
                 res.setHeader("Content-Type", ServerContext.getType(type));
                 
                 File file = new File(ServerContext.WebRoot + req.getUri());
@@ -45,11 +53,16 @@ public class ClientHandler implements Runnable {
                 res.write(bys);
                 
                 bis.close();
-                socket.close();
             }
             
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+        	try {
+				socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
         }
     }
 

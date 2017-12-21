@@ -11,5 +11,6 @@ public class HttpContext {
     
     public final static int STATUS_CODE_ERROR = 500;
     
-    public final static String STATUS_REASON_ERROR = "Internal Server Error";  
+    public final static String STATUS_REASON_ERROR = "Internal Server Error";
+    
 }
