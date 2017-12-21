@@ -17,10 +17,10 @@ public class HttpRequset {
     private Map<String, String> Parameter;
 
     public HttpRequset(InputStream in) {
+    	Form = new HashMap<String, String>();
         Header = new HashMap<String, String>();
-        QueryString = new HashMap<String, String>();
-        Form = new HashMap<String, String>();
         Parameter = new HashMap<String, String>();
+        QueryString = new HashMap<String, String>();
         analysis(in);
     }
 
